@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
 import "@/app/globals.css";
 import { absoluteUrl, siteConfig } from "@/lib/site";
+
+const sansFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const serifFont = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -50,7 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${sansFont.variable} ${serifFont.variable}`} suppressHydrationWarning>
       <body>
         <StructuredData data={organizationData} />
         <a className="skip-link" href="#main-content">
