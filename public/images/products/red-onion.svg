@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f3dce5"/>
+  <g fill="#9b5872">
+    <ellipse cx="360" cy="500" rx="120" ry="150"/>
+    <ellipse cx="590" cy="420" rx="130" ry="162"/>
+    <ellipse cx="830" cy="500" rx="120" ry="150"/>
+  </g>
+  <g stroke="#7f4157" stroke-width="8" opacity=".6">
+    <path d="M360 380v240"/>
+    <path d="M590 300v260"/>
+    <path d="M830 380v240"/>
+  </g>
+</svg>
