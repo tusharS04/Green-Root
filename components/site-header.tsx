@@ -54,9 +54,6 @@ export function SiteHeader() {
               </Link>
             );
           })}
-          <Link className="button button--primary site-nav__cta" href="/contact" onClick={() => setIsOpen(false)}>
-            Get in Touch
-          </Link>
         </nav>
       </div>
     </header>

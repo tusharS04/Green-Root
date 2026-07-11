@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/structured-data";
 import { products } from "@/lib/content";
 import { buildMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
+import { Reveal } from "@/components/reveal";
 
 export const metadata = buildMetadata({
   title: "Products",
@@ -37,21 +38,27 @@ export default function ProductsPage() {
 
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="Categories"
-            title="Fresh fruits and vegetables grouped to make buyer exploration faster."
-            description="The product grid is responsive, structured, and intentionally simple to scan across devices."
-          />
-          <div className="category-pills" role="list" aria-label="Product categories">
-            {categories.map((category) => (
-              <span className="chip chip--solid" key={category}>
-                {category}
-              </span>
-            ))}
-          </div>
+          <Reveal direction="up" delay={0.1}>
+            <SectionHeading
+              eyebrow="Categories"
+              title="Fresh fruits and vegetables grouped to make buyer exploration faster."
+              description="The product grid is responsive, structured, and intentionally simple to scan across devices."
+            />
+          </Reveal>
+          <Reveal direction="up" delay={0.2}>
+            <div className="category-pills" role="list" aria-label="Product categories">
+              {categories.map((category) => (
+                <span className="chip chip--solid" key={category}>
+                  {category}
+                </span>
+              ))}
+            </div>
+          </Reveal>
           <div className="card-grid card-grid--products">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.map((product, idx) => (
+              <Reveal key={product.id} direction="up" delay={(idx % 4) * 0.1}>
+                <ProductCard product={product} />
+              </Reveal>
             ))}
           </div>
         </div>

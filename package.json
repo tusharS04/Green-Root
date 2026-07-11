@@ -10,6 +10,7 @@
     "check": "tsc --noEmit && next build"
   },
   "dependencies": {
+    "framer-motion": "^12.42.2",
     "next": "latest",
     "nodemailer": "latest",
     "react": "latest",

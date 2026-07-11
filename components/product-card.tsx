@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { Product } from "@/lib/content";
-import { ArrowUpRight } from "@/components/icons";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -20,14 +19,21 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
       <div className="card-body">
-        <p className="chip">{product.category}</p>
+        <div className="card-meta">
+          <span className="chip">{product.category}</span>
+          <span className="card-origin">{product.origin}</span>
+        </div>
         <h3>{product.name}</h3>
-        <p>{product.shortDescription}</p>
-        <div className="card-footer">
-          <span>{product.origin}</span>
-          <Link className="inline-link" href={`/product/${product.slug}`}>
-            View details
-            <ArrowUpRight width={16} height={16} />
+        <p className="card-desc">{product.shortDescription}</p>
+        <div className="card-moq">
+          <span>MOQ:</span> <strong>{product.moq}</strong>
+        </div>
+        <div className="card-actions">
+          <Link className="button button--secondary button--sm" href={`/product/${product.slug}`}>
+            Details
+          </Link>
+          <Link className="button button--primary button--sm" href="/contact">
+            + Inquire
           </Link>
         </div>
       </div>
